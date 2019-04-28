@@ -24,7 +24,7 @@
     <module name="TreeWalker">
 		<module name="MethodLength">
 		  <property name="tokens" value="METHOD_DEF"/>
-		  <property name="max" value="0"/>
+		  <property name="max" value="200"/>
 		</module>
 		<module name="ClassFanOutComplexity">
 		  <property name="max" value="0"/>
