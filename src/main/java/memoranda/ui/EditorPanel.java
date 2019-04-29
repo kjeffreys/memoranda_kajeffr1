@@ -154,6 +154,19 @@ public class EditorPanel extends JPanel {
 		}
 	};
 
+	//added this method to breakup method over 200 lines
+	public void addButton(JButton button)
+	{
+		button.setAction(newAction);
+		button.setMaximumSize(new Dimension(24, 24));
+		button.setMinimumSize(new Dimension(24, 24));
+		button.setPreferredSize(new Dimension(24, 24));
+		button.setRequestFocusEnabled(false);
+		button.setToolTipText(Local.getString("New note"));
+		button.setBorderPainted(false);
+		button.setFocusable(false);
+		button.setText("");
+	}
 	void jbInit() throws Exception {
 
 		if (!Configuration.get("DISABLE_L10N").equals("yes"))
@@ -164,35 +177,10 @@ public class EditorPanel extends JPanel {
 
 		this.setLayout(borderLayout1);
 
-		newB.setAction(newAction);
-		newB.setMaximumSize(new Dimension(24, 24));
-		newB.setMinimumSize(new Dimension(24, 24));
-		newB.setPreferredSize(new Dimension(24, 24));
-		newB.setRequestFocusEnabled(false);
-		newB.setToolTipText(Local.getString("New note"));
-		newB.setBorderPainted(false);
-		newB.setFocusable(false);
-		newB.setText("");
+		addButton(newB);
+		addButton(importB);
+		addButton(exportB);
 
-		importB.setAction(importAction);
-		importB.setBorderPainted(false);
-		importB.setFocusable(false);
-		importB.setPreferredSize(new Dimension(24, 24));
-		importB.setRequestFocusEnabled(false);
-		importB.setToolTipText(Local.getString("Insert file"));
-		importB.setMinimumSize(new Dimension(24, 24));
-		importB.setMaximumSize(new Dimension(24, 24));
-		importB.setText("");
-
-		exportB.setAction(exportAction);
-		exportB.setMaximumSize(new Dimension(24, 24));
-		exportB.setMinimumSize(new Dimension(24, 24));
-		exportB.setPreferredSize(new Dimension(24, 24));
-		exportB.setRequestFocusEnabled(false);
-		exportB.setToolTipText(Local.getString("Export note to file"));
-		exportB.setBorderPainted(false);
-		exportB.setFocusable(false);
-		exportB.setText("");
 
 		redoB.setAction(editor.redoAction);
 		redoB.setMaximumSize(new Dimension(24, 24));
