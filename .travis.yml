@@ -1,2 +1,5 @@
+before_install:
+- cd memoranda/
+- chmod +x gradlew
 language: java
-jdk: oraclejdk11
+jdk: openjdk11
