@@ -21,14 +21,14 @@ import main.java.memoranda.interfaces.Note;
 /*$Id: NoteImpl.java,v 1.6 2004/10/06 19:15:44 ivanrise Exp $*/
 public class NoteImpl implements Note, Comparable {
     
-    private Element _element = null; 
+    private Element _el = null; 
     private Project _project;
     
     /**
      * Constructor for NoteImpl.
      */
     public NoteImpl(Element el, Project project) {
-        _element = el;
+        _el = el;
         _project = project;
     }
 
@@ -36,7 +36,7 @@ public class NoteImpl implements Note, Comparable {
      * @see main.java.memoranda.interfaces.Note#getDate()
      */
     public CalendarDate getDate() {
-		Element day = (Element)_element.getParent();
+		Element day = (Element)_el.getParent();
 		Element month = (Element)day.getParent();
 		Element year = (Element)month.getParent();
 
@@ -55,16 +55,16 @@ public class NoteImpl implements Note, Comparable {
      * @see main.java.memoranda.interfaces.Note#getTitle()
      */
     public String getTitle() {
-        Attribute ta = _element.getAttribute("title");
+        Attribute ta = _el.getAttribute("title");
         if (ta == null) return "";
-        return _element.getAttribute("title").getValue();
+        return _el.getAttribute("title").getValue();
     }
     /**
      * @see main.java.memoranda.interfaces.Note#setTitle(java.lang.String)
      */
     public void setTitle(String s) {
-        Attribute ta = _element.getAttribute("title");
-        if (ta == null) _element.addAttribute(new Attribute("title", s));
+        Attribute ta = _el.getAttribute("title");
+        if (ta == null) _el.addAttribute(new Attribute("title", s));
         else 
             ta.setValue(s);
     }
@@ -74,9 +74,9 @@ public class NoteImpl implements Note, Comparable {
      */
 	
 	public String getId() {
-		Attribute id = _element.getAttribute("refid");
+		Attribute id = _el.getAttribute("refid");
 		if (id==null) return "";
-		return _element.getAttribute("refid").getValue();
+		return _el.getAttribute("refid").getValue();
 	}
 	
 	/**
@@ -84,27 +84,27 @@ public class NoteImpl implements Note, Comparable {
      */
 	 
 	public void setId(String s) {
-		Attribute id = _element.getAttribute("refid");
-		if(id==null) _element.addAttribute(new Attribute("refid", s));
+		Attribute id = _el.getAttribute("refid");
+		if(id==null) _el.addAttribute(new Attribute("refid", s));
 	}
     /**
      * @see main.java.memoranda.interfaces.Note#isMarked()
      */
     public boolean isMarked() {
-        return _element.getAttribute("bookmark") != null;        
+        return _el.getAttribute("bookmark") != null;        
     }
     /**
      * @see main.java.memoranda.interfaces.Note#setMark(boolean)
      */
     public void setMark(boolean mark) {
-        Attribute ma = _element.getAttribute("bookmark");        
+        Attribute ma = _el.getAttribute("bookmark");        
         if (ma == null) {
             if (mark)
-                _element.addAttribute(new Attribute("bookmark", "yes"));
+                _el.addAttribute(new Attribute("bookmark", "yes"));
             return;
         }
         else if (!mark)
-            _element.removeAttribute(ma);
+            _el.removeAttribute(ma);
     }
 	
 	/*
