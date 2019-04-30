@@ -47,7 +47,8 @@ public class EventImpl implements Event, Comparable {
      * @see main.java.memoranda.Event#getMinute()
      */
     public int getMinute() {
-        return new Integer(_element.getAttribute("min").getValue()).intValue();
+    	return Integer.parseInt(_element.getAttribute("min").getValue());
+        //return new Integer(_element.getAttribute("min").getValue()).intValue();
     }
     
     public String getTimeString() {
