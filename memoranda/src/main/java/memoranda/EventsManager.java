@@ -13,6 +13,8 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Vector;
 
+import main.java.memoranda.EventsManager.Day;
+import main.java.memoranda.EventsManager.Month;
 import main.java.memoranda.date.CalendarDate;
 import main.java.memoranda.interfaces.Event;
 import main.java.memoranda.util.CurrentStorage;
@@ -67,8 +69,8 @@ public class EventsManager {
 	}
 
 	@SuppressWarnings("unchecked")
-	public static Map getStickers() {
-		Map m = new HashMap();
+	public static Map<String, Element> getStickers() {
+		Map<String, Element> m = new HashMap<String, Element>();
 		Elements els = _root.getChildElements("sticker");
 		for (int i = 0; i < els.size(); i++) {
 			Element se = els.get(i);
@@ -96,16 +98,21 @@ public class EventsManager {
 			return true;
 		return false;
 	}
-
-	public static Collection getEventsForDate(CalendarDate date) {
-		Vector v = new Vector();
+	/*
+	 * TASK3-2 SMELL BETWEEN CLASSES
+	 * Several vectors with unlabeled references to generic types.
+	 * They should be and have been parameterized to prevent misuse
+	 * between the EventsManager and EventsScheduler classes.
+	 */
+	public static Collection<Event> getEventsForDate(CalendarDate date) {
+		Vector<Event> v = new Vector<Event>();
 		Day d = getDay(date);
 		if (d != null) {
 			Elements els = d.getElement().getChildElements("event");
 			for (int i = 0; i < els.size(); i++)
 				v.add(new EventImpl(els.get(i)));
 		}
-		Collection r = getRepeatableEventsForDate(date);
+		Collection<Event> r = getRepeatableEventsForDate(date);
 		if (r.size() > 0)
 			v.addAll(r);
 		//EventsVectorSorter.sort(v);
@@ -160,8 +167,8 @@ public class EventsManager {
 		return new EventImpl(el);
 	}
 
-	public static Collection getRepeatableEvents() {
-		Vector v = new Vector();
+	public static Collection<EventImpl> getRepeatableEvents() {
+		Vector<EventImpl> v = new Vector<EventImpl>();
 		Element rep = _root.getFirstChildElement("repeatable");
 		if (rep == null)
 			return v;
@@ -171,9 +178,9 @@ public class EventsManager {
 		return v;
 	}
 
-	public static Collection getRepeatableEventsForDate(CalendarDate date) {
-		Vector reps = (Vector) getRepeatableEvents();
-		Vector v = new Vector();
+	public static Collection<Event> getRepeatableEventsForDate(CalendarDate date) {
+		Vector<EventImpl> reps = (Vector<EventImpl>) getRepeatableEvents();
+		Vector<Event> v = new Vector<Event>();
 		for (int i = 0; i < reps.size(); i++) {
 			Event ev = (Event) reps.get(i);
 			
@@ -221,7 +228,7 @@ public class EventsManager {
 		return v;
 	}
 
-	public static Collection getActiveEvents() {
+	public static Collection<Event> getActiveEvents() {
 		return getEventsForDate(CalendarDate.today());
 	}
 
@@ -321,8 +328,8 @@ public class EventsManager {
 			return new Month(el);
 		}
 
-		public Vector getMonths() {
-			Vector v = new Vector();
+		public Vector<Month> getMonths() {
+			Vector<Month> v = new Vector<Month>();
 			Elements ms = yearElement.getChildElements("month");
 			for (int i = 0; i < ms.size(); i++)
 				v.add(new Month(ms.get(i)));
@@ -379,10 +386,10 @@ public class EventsManager {
 			return new Day(el);
 		}
 
-		public Vector getDays() {
+		public Vector<Day> getDays() {
 			if (mElement == null)
 				return null;
-			Vector v = new Vector();
+			Vector<Day> v = new Vector<Day>();
 			Elements ds = mElement.getChildElements("day");
 			for (int i = 0; i < ds.size(); i++)
 				v.add(new Day(ds.get(i)));

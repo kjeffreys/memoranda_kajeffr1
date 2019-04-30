@@ -13,6 +13,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.Vector;
 
+import main.java.memoranda.EventsScheduler.EventTimer;
 import main.java.memoranda.interfaces.Event;
 import main.java.memoranda.interfaces.EventNotificationListener;
 
@@ -21,9 +22,14 @@ import main.java.memoranda.interfaces.EventNotificationListener;
  */
 /*$Id: EventsScheduler.java,v 1.4 2004/01/30 12:17:41 alexeya Exp $*/
 public class EventsScheduler {
-
-    static Vector _timers = new Vector();
-    static Vector _listeners = new Vector();
+/*
+ * TASK3-2 SMELL BETWEEN CLASSES
+ * Several vectors with unlabeled references to generic types.
+ * They should be and have been parameterized to prevent misuse
+ * between the EventsManager, and EventsScheduler classes.
+ */
+    static Vector<EventTimer> _timers = new Vector();
+    static Vector<EventNotificationListener> _listeners = new Vector();
 
     static Timer changeDateTimer = new Timer();
 
@@ -67,8 +73,8 @@ public class EventsScheduler {
         }
     }
     
-    public static Vector getScheduledEvents() {
-        Vector v = new Vector();
+    public static Vector<Event> getScheduledEvents() {
+        Vector<Event> v = new Vector<Event>();
         for (int i = 0; i < _timers.size(); i++) 
             v.add(((EventTimer)_timers.get(i)).getEvent());
         return v;

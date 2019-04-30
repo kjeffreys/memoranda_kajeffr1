@@ -47,6 +47,11 @@ public class EventImpl implements Event, Comparable {
      * @see main.java.memoranda.Event#getMinute()
      */
     public int getMinute() {
+    	/**
+    	 * TASK 3-1 SMELL WITHIN A CLASS
+    	 * This method was using "return new Integer" which is deprecated.
+    	 * 
+    	 */
     	return Integer.parseInt(_element.getAttribute("min").getValue());
         //return new Integer(_element.getAttribute("min").getValue()).intValue();
     }
