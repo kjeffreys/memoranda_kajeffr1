@@ -104,15 +104,15 @@ public class EventsManager {
 	 * They should be and have been parameterized to prevent misuse
 	 * between the EventsManager and EventsScheduler classes.
 	 */
-	public static Collection<> getEventsForDate(CalendarDate date) {
-		Vector<> v = new Vector<>();
+	public static Collection getEventsForDate(CalendarDate date) {
+		Vector v = new Vector<>();
 		Day d = getDay(date);
 		if (d != null) {
 			Elements els = d.getElement().getChildElements("event");
 			for (int i = 0; i < els.size(); i++)
 				v.add(new EventImpl(els.get(i)));
 		}
-		Collection<> r = getRepeatableEventsForDate(date);
+		Collection r = getRepeatableEventsForDate(date);
 		if (r.size() > 0)
 			v.addAll(r);
 		//EventsVectorSorter.sort(v);
