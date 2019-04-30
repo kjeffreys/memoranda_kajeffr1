@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="memoranda/src"/>
+	<classpathentry kind="lib" path="memoranda/build/libs/memoranda.jar"/>
+	<classpathentry kind="lib" path="memoranda/gradle/wrapper/gradle-wrapper.jar"/>
+	<classpathentry kind="lib" path="memoranda/lib/nekohtml.jar"/>
+	<classpathentry kind="lib" path="memoranda/lib/nekohtmlXni.jar"/>
+	<classpathentry kind="lib" path="memoranda/lib/swag.jar"/>
+	<classpathentry kind="lib" path="memoranda/lib/swexpl.jar"/>
+	<classpathentry kind="lib" path="memoranda/lib/xercesImpl.jar"/>
+	<classpathentry kind="lib" path="memoranda/lib/xmlParserAPIs.jar"/>
+	<classpathentry kind="lib" path="memoranda/lib/xom-1.0.jar"/>
+	<classpathentry kind="output" path="memoranda/build/classes/java/main"/>
+</classpath>
