@@ -14,7 +14,7 @@ import main.java.memoranda.date.CalendarDate;
  * 
  */
 /*$Id: TaskList.java,v 1.8 2005/12/01 08:12:26 alexeya Exp $*/
-public interface ITaskList {
+public interface TaskList {
 
 	Project getProject();
     Task getTask(String id);

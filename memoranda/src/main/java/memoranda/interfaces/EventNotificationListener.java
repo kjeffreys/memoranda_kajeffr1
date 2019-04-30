@@ -12,7 +12,7 @@ package main.java.memoranda.interfaces;
  * 
  */
 /*$Id: EventNotificationListener.java,v 1.2 2004/01/30 12:17:41 alexeya Exp $*/
-public interface IEventNotificationListener {
+public interface EventNotificationListener {
 
     void eventIsOccured(Event ev);
     

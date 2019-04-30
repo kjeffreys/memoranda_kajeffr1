@@ -14,7 +14,7 @@ import main.java.memoranda.date.CalendarDate;
  * 
  */
 /*$Id: NoteList.java,v 1.5 2004/10/07 21:33:36 ivanrise Exp $*/
-public interface INoteList {
+public interface NoteList {
     
     Collection getAllNotes();
     
