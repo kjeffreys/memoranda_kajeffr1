@@ -446,7 +446,7 @@ public class TaskTable extends JTable {
                     int max = listSelectionModel.getMaxSelectionIndex();
 
                     clearSelection();
-                    if (min != -1 && max != -1) {
+                    if (min + max != -2) {
                         for (int counter = min; counter <= max; counter++) {
                             if (listSelectionModel.isSelectedIndex(counter)) {
                                 TreePath selPath = tree.getPathForRow(counter);
