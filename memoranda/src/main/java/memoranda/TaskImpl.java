@@ -13,6 +13,9 @@ import java.util.Vector;
 
 import main.java.memoranda.date.CalendarDate;
 import main.java.memoranda.date.CurrentDate;
+import main.java.memoranda.interfaces.Project;
+import main.java.memoranda.interfaces.Task;
+import main.java.memoranda.interfaces.TaskList;
 
 import java.util.Calendar;
 
