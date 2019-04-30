@@ -1,6 +1,6 @@
 package main.java.memoranda.ui;
 
-import java.awt.BorderLayout;
+import java.awt.BorderLayout; 
 import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Cursor;
@@ -280,7 +280,7 @@ public class DailyItemsPanel extends JPanel {
         });
 
         EventsScheduler.addListener(new EventNotificationListener() {
-            public void eventIsOccured(main.java.memoranda.Event ev) {
+            public void eventIsOccured(main.java.memoranda.interfaces.Event ev) {
                 /*DEBUG*/
                 System.out.println(ev.getTimeString() + " " + ev.getText());
                 updateIndicators();
@@ -432,7 +432,7 @@ public class DailyItemsPanel extends JPanel {
                     net.sf.memoranda.Event ev = (net.sf.memoranda.Event)it.next();   
                     evlist += ev.getTimeString()+" - "+ev.getText()+"\n";
                 } */
-                main.java.memoranda.Event ev = EventsScheduler.getFirstScheduledEvent();
+                main.java.memoranda.interfaces.Event ev = EventsScheduler.getFirstScheduledEvent();
                 alarmB.setToolTipText(ev.getTimeString() + " - " + ev.getText());
                 indicatorsPanel.add(alarmB, null);
             }

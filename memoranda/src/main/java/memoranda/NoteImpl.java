@@ -8,11 +8,12 @@
  */
 package main.java.memoranda;
 
-import main.java.memoranda.date.CalendarDate;
+import main.java.memoranda.date.CalendarDate; 
 import main.java.memoranda.interfaces.Note;
 import main.java.memoranda.interfaces.Project;
 import nu.xom.Attribute;
 import nu.xom.Element;
+import main.java.memoranda.interfaces.Note;
 
 /**
  * 

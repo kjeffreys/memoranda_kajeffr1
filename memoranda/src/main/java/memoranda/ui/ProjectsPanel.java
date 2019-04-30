@@ -1,6 +1,6 @@
 package main.java.memoranda.ui;
 
-import java.awt.BorderLayout;
+import java.awt.BorderLayout; 
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
@@ -382,7 +382,7 @@ public class ProjectsPanel extends JPanel implements ExpandablePanel {
 			i < prjTablePanel.projectsTable.getSelectedRows().length;
 			i++) {
 			prj =
-				(main.java.memoranda.Project) prjTablePanel
+				(main.java.memoranda.interfaces.Project) prjTablePanel
 					.projectsTable
 					.getModel()
 					.getValueAt(

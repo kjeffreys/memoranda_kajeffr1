@@ -7,7 +7,7 @@
  * Copyright (c) 2003 Memoranda Team. http://memoranda.sf.net
  */
 package main.java.memoranda;
-import java.util.Collection;
+import java.util.Collection; 
 import java.util.Vector;
 
 import main.java.memoranda.date.CalendarDate;
@@ -19,6 +19,10 @@ import nu.xom.Attribute;
 import nu.xom.Document;
 import nu.xom.Element;
 import nu.xom.Elements;
+
+import main.java.memoranda.interfaces.Note;
+import main.java.memoranda.interfaces.NoteList;
+import main.java.memoranda.interfaces.NoteListener;
 /**
  * 
  */

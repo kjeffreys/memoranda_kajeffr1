@@ -15,9 +15,9 @@ import java.util.Vector;
 
 import main.java.memoranda.interfaces.NoteList;
 import main.java.memoranda.interfaces.Project;
-import main.java.memoranda.interfaces.ProjectListener;
 import main.java.memoranda.interfaces.ResourcesList;
 import main.java.memoranda.interfaces.TaskList;
+import main.java.memoranda.interfaces.ProjectListener;
 import main.java.memoranda.ui.AppFrame;
 import main.java.memoranda.util.Context;
 import main.java.memoranda.util.CurrentStorage;
@@ -33,7 +33,7 @@ public class CurrentProject {
     private static TaskList _tasklist = null;
     private static NoteList _notelist = null;
     private static ResourcesList _resources = null;
-    private static Vector projectListeners = new Vector();
+    private static Vector<ProjectListener> projectListeners = new Vector<ProjectListener>();
 
         
     static {
